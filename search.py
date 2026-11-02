@@ -75,6 +75,10 @@ class Node:
     def __repr__(self):
         return "<Node %s>" % (self.state,)
 
+    def __lt__(self, other):
+        """Define a node as 'smaller' than another if its cumulative cost is lower."""
+        return self.path_cost < other.path_cost
+
     def path(self):
         """Create a list of nodes from the root to this node."""
         x, result = self, [self]
