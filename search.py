@@ -122,7 +122,7 @@ def depth_first_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, Stack())
 
-def Branch_and_Bound_search(problem):
+def branch_and_Bound_search(problem):
     """"Search the best path in the search tree """
     return graph_search(problem, PriorityQueue())
 
