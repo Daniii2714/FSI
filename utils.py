@@ -548,6 +548,11 @@ class PriorityQueue(Queue):
     def __init__(self):
         self.A = []
 
+    def append(self, item):
+        self.A.append(item)
+        """The most cheaper in the final"""
+        self.A.sort(reverse=True)
+
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
 ## Alas, it is Fig[3,10] not Fig[3.10], because that would be the same as Fig[3.1]
