@@ -543,6 +543,10 @@ class FIFOQueue(Queue):
             self.start = 0
         return e
 
+class PriorityQueue(Queue):
+    """A Priority Queue."""
+    def __init__(self):
+        self.A = []
 
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
