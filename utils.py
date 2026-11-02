@@ -556,6 +556,15 @@ class PriorityQueue(Queue):
     def __len__(self):
         return len(self.A)
 
+    def extend(self, items):
+        self.A.extend(items)
+        self.A.sort(reverse=True)
+
+    def pop(self):
+        if self.A:
+            return self.A.pop()
+        else:
+            raise IndexError("pop from empty PriorityQueue")
 
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
