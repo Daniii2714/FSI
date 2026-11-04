@@ -552,14 +552,14 @@ class PriorityQueue(Queue):
     def append(self, item):
         self.A.append(item)
         """The most cheaper in the final"""
-        self.A.sort(reverse=True)
+        self.A.sort(key=self.f, reverse=True)
 
     def __len__(self):
         return len(self.A)
 
     def extend(self, items):
         self.A.extend(items)
-        self.A.sort(reverse=True)
+        self.A.sort(key=self.f, reverse=True)
 
     def pop(self):
         if self.A:
