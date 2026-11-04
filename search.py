@@ -125,6 +125,12 @@ def depth_first_graph_search(problem):
 def branch_and_Bound_search(problem):
     return graph_search(problem, PriorityQueue())
 
+
+def branch_and_bound_subestimation_search(problem):
+    # f(n) = g(n) + h(n)
+    f= lambda node: node.path_cost + problem.h(node)
+    return graph_search(problem, PriorityQueue(f=f))
+
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.
 
