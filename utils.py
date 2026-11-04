@@ -545,8 +545,9 @@ class FIFOQueue(Queue):
 
 class PriorityQueue(Queue):
     """A Priority Queue."""
-    def __init__(self):
+    def __init__(self, f=lambda x: x.path_cost):
         self.A = []
+        self.f = f
 
     def append(self, item):
         self.A.append(item)
