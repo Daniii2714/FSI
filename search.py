@@ -7,6 +7,7 @@ functions."""
 
 from utils import *
 import random
+import time
 import sys
 
 
@@ -101,6 +102,7 @@ def graph_search(problem, fringe):
     """Search through the successors of a problem to find a goal.
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
+    tiempo_inicio = time.perf_counter()
     nodos_generados = 0
     nodos_visitados = 0
 
@@ -111,12 +113,14 @@ def graph_search(problem, fringe):
         node = fringe.pop()
         nodos_visitados += 1
         if problem.goal_test(node.state):
-            return node, nodos_generados, nodos_visitados, node.path_cost
+            tiempo_final = time.perf_counter()
+            return node, nodos_generados, nodos_visitados, node.path_cost, tiempo_final - tiempo_inicio
         if node.state not in closed:
             closed[node.state] = True
             nodos_generados += len(node.expand(problem))
             fringe.extend(node.expand(problem))
-    return None, nodos_generados, nodos_visitados, node.path_cost
+    tiempo_final = time.perf_counter()
+    return None, nodos_generados, nodos_visitados, node.path_cost, tiempo_final - tiempo_inicio
 
 
 def breadth_first_graph_search(problem):
