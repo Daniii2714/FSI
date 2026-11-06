@@ -111,12 +111,12 @@ def graph_search(problem, fringe):
         node = fringe.pop()
         nodos_visitados += 1
         if problem.goal_test(node.state):
-            return node, nodos_generados, nodos_visitados
+            return node, nodos_generados, nodos_visitados, node.path_cost
         if node.state not in closed:
             closed[node.state] = True
             nodos_generados += len(node.expand(problem))
             fringe.extend(node.expand(problem))
-    return None, nodos_generados, nodos_visitados
+    return None, nodos_generados, nodos_visitados, node.path_cost
 
 
 def breadth_first_graph_search(problem):
